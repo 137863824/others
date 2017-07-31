@@ -1,0 +1,40 @@
+body {
+    /* 字体 */
+    font-family: PingFang SC, Lantinghei SC, Helvetica Neue, Helvetica, Arial, Microsoft YaHei, "sans-serif";
+    /* 数字与英文都会换行 */
+    word-wrap: break-word;
+    /* 不换行 */
+    white-space: nowrap;
+    /* 单行超出省略 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* 多行超出省略，适用范围webkit及移动端 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    /* 通用 */
+    /* p { */
+    position: relative;
+    line-height: 20px;
+    max-height: 40px;
+    overflow: hidden;
+    /* } */
+    /* p::after { */
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-left: 40px;
+    background: -webkit-linear-gradient(left, transparent, #fff 55%);
+    background: -o-linear-gradient(right, transparent, #fff 55%);
+    background: -moz-linear-gradient(right, transparent, #fff 55%);
+    background: linear-gradient(to right, transparent, #fff 55%);
+    /* } */
+    /* 注意：
+    将height设置为line-height的整数倍，防止超出的文字露出。
+    给p::after添加渐变背景可避免文字只显示一半。
+    由于ie6-7不显示content内容，所以要添加标签兼容ie6-7（如：<span>…<span/>）；兼容ie8需要将::after替换成:after。
+ */
+}
