@@ -37,14 +37,77 @@ body {
     给p::after添加渐变背景可避免文字只显示一半。
     由于ie6-7不显示content内容，所以要添加标签兼容ie6-7（如：<span>…<span/>）；兼容ie8需要将::after替换成:after。
  */
-
-
     /* 自适应框，用padding，而不设置高度 */
     word-wrap: break-word;
     width: 868px;
     padding: 18px 10px;
+}
 
 
+/* 媒体查询rem */
 
+@media screen and (min-width:320px) {
+    html {
+        font-size: 21.33px
+    }
+}
 
+@media screen and (min-width:360px) {
+    html {
+        font-size: 24px
+    }
+}
+
+@media screen and (min-width:375px) {
+    html {
+        font-size: 25px
+    }
+}
+
+@media screen and (min-width:384px) {
+    html {
+        font-size: 25.6px
+    }
+}
+
+@media screen and (min-width:400px) {
+    html {
+        font-size: 27px
+    }
+}
+
+@media screen and (min-width:414px) {
+    html {
+        font-size: 27px
+    }
+}
+
+@media screen and (min-width:424px) {
+    html {
+        font-size: 28.27px
+    }
+}
+
+@media screen and (min-width:480px) {
+    html {
+        font-size: 32px
+    }
+}
+
+@media screen and (min-width:540px) {
+    html {
+        font-size: 36px
+    }
+}
+
+@media screen and (min-width:720px) {
+    html {
+        font-size: 48px
+    }
+}
+
+@media screen and (min-width:750px) {
+    html {
+        font-size: 50px
+    }
 }

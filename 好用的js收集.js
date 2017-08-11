@@ -2,6 +2,12 @@
 $('.link-1').on('click', 'a', function () {
     $(this).addClass('login-checked').siblings().removeClass('login-checked')
 })
+// 添加类与移除类并显示与隐藏
+$('.college-list').on('click', 'li', function () {
+    $(this).addClass('tc-on').siblings().removeClass('tc-on')
+    var num = $(this).index() + 3;
+    $(".tab-list").eq(num).show().siblings(".tab-list").hide();
+})
 // 下拉表单
 $(document).on('click', function () {
     $(".link-1").slideUp(100);
@@ -44,3 +50,45 @@ function changeHeight() {
         height: h + "px"
     })
 }
+
+// 截字
+$('.tab-list li').each(function () {
+    var str = $(this).find(".infobox h4").text();
+    var strArray = str.split("")
+    if (strArray.length > 7) {
+        strArray1 = strArray.splice(0, 8).join("")
+        strArray2 = strArray.splice(strArray.length - 2, 2).join("")
+        $(this).find(".infobox h4").text(strArray1 + '... ' + strArray2)
+    }
+})
+// 截字，浮动弹层
+$('.tab-list li').each(function () {
+    var str = $(this).find(".infobox h4").text();
+    var strArray = str.split("")
+    if (strArray.length > 7) {
+        strArray1 = strArray.splice(0, 8).join("")
+        strArray2 = strArray.splice(strArray.length - 2, 2).join("")
+        $(this).find(".infobox h4").text(strArray1 + '... ' + strArray2)
+        $(this).find(".sch-name").html(str).css("display", "none");
+    } else {
+        $(this).find(".sch-name").remove();
+    }
+})
+$(".tab-list .infobox h4").mouseenter(function () {
+    $(this).closest(".infobox").find('.sch-name').fadeIn()
+})
+$(".tab-list .infobox h4").mouseleave(function () {
+    $(this).closest(".infobox").find('.sch-name').fadeOut()
+})
+// 改变html字体大小
+window.onresize = function(){
+    calcRam()
+}
+function calcRam(){
+    var html = document.querySelector("html")
+    var w = document.documentElement.clientWidth
+    // 让页面字体大小为20px
+    // 字体大小设置为12px以下，有些浏览器会转换为12px
+    html.style.fontSize = w / 37.5 + "px"
+}
+calcRam()
