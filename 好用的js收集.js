@@ -81,10 +81,11 @@ $(".tab-list .infobox h4").mouseleave(function () {
     $(this).closest(".infobox").find('.sch-name').fadeOut()
 })
 // 改变html字体大小
-window.onresize = function(){
+window.onresize = function () {
     calcRam()
 }
-function calcRam(){
+
+function calcRam() {
     var html = document.querySelector("html")
     var w = document.documentElement.clientWidth
     // 让页面字体大小为20px
@@ -92,3 +93,22 @@ function calcRam(){
     html.style.fontSize = w / 37.5 + "px"
 }
 calcRam()
+
+
+// 开关切换
+$(".exchange").on("click", function () {
+    $(this).toggleClass("exon")
+    if ($(this).hasClass("exon")) {
+        $(this).text("已兑换")
+    } else {
+        $(this).text("我要兑换")
+    }
+    $(".tc-exchange").css({
+        display: "block"
+    })
+    $(".tc-back,.tc-confirm").on("click", function () {
+        $(".tc-exchange").css({
+            display: "none"
+        })
+    })
+})
