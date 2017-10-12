@@ -112,3 +112,19 @@ $(".exchange").on("click", function () {
         })
     })
 })
+
+//关键词回复，全选与多选
+var isChecked
+$('body').on('click','.allCheck',function(){
+  isChecked = this.checked
+  $('.eachCheck').prop('checked',isChecked)
+})
+$('body').on('click','.eachCheck',function(){
+  var sib = $(this).parents('.rule-main').find('.eachCheck:checked').length;
+  var total = $(this).parents('.rule-main').find('.eachCheck').length;
+  if (sib == total) {
+    $('.allCheck').prop("checked", true);
+  } else {
+    $('.allCheck').prop("checked", false);
+  }
+})
